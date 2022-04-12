@@ -5,7 +5,7 @@
 **Nosso projeto visa construir um site que conecta os produtores à consumidores da região. O nosso objetivo é auxiliar o consumidor a achar produtores próximos a sua região, assim como ajudar na divulgação de produtos agrícolas conectando via chat pequenos/médios produtores à consumidores locais**
 
 
-- Para acessar o MVP  [clique aqui.](link do mvp)
+- Para acessar o MVP  [clique aqui.](https://github.com/Marcato0/Projeto-integrador---CERES/blob/127ff599b18dab8e46dcd8d57636e0a1014cc761/MVP%20-%20Ceres.pdf)
 
 ## Andamento do Projeto
 
