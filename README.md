@@ -13,7 +13,10 @@
 - [x] Entrega 02 - MVP - Lista das funcionalidades
 - [x] Entrega 03 - Mapa de conhecimento (definição tecnologica) + cronograma
 - [x] Entrega 04 - Montagem do Ambiente (git e softwares)
-- [ ] Entrega 05 - Sprint 1
+- [x] Entrega 05 - Sprint 1
+- [x] Entrega 06 - Sprint 2
+- [x] Entrega 07 - Sprint 3
+- [x] Entrega 08 - Relatório Final
 
 ## Equipe
 
