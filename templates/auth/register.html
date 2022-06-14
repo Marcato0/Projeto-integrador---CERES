@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'title' %}Cadastro{% endblock %}
+
+{% block 'css' %}
+    {% static 'css/register-login.css' %} 
+{% endblock %}
+
+{% block 'content' %}
+
+    <form method="POST" action="{% url 'validate_register' %}" class="formulario" id="formularioCadastro">
+        {% csrf_token %}
+
+        <img src="{% static 'img/logo.png' %}" style="width: 160px; height: 160px; display: block; margin: auto;" alt="">
+
+        <hr class="linhaFormulario">
+
+        <div id="conteudo">
+            <h1 class="titulo">Crie sua conta</h1>
+
+            <div style="margin-bottom: 15px;">
+                <label for="cadastroNome" class="label-campo">Nome <strong><span class="asteristico">*</span></strong></label>
+                <input type="text" class="input-campo" id="cadastroNome" name="name" placeholder="Digite seu nome . . ." required>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="cadastroEmail" class="label-campo">E-mail <strong><span class="asteristico">*</span></strong></label>
+                <input type="email" class="input-campo" id="cadastroEmail" name="email" placeholder="Digite seu email . . ." required>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="cadastroSenha" class="label-campo">Senha <strong><span class="asteristico">*</span></strong></label>
+                <input type="password" class="input-campo" id="cadastroSenha" name="password" placeholder="Digite sua senha . . ." required>
+            </div>
+            <div>
+                <label for="cadastroSenhaConfirma" class="label-campo">Confimação de senha <strong><span class="asteristico">*</span></strong></label>
+                <input type="password" class="input-campo" id="cadastroSenhaConfirma" name="confirmPassword" placeholder="Digite sua senha novamente . . ." required>
+            </div>
+
+            <button type="submit" class="botao-principal">Cadastrar</button>
+        </div>
+        <hr class="linhaFormulario">
+
+        <div class="rodape-formulario">
+            <p>Já possui uma conta? <a href="{% url 'login' %}" class="clique-aqui">Entre aqui</a></p>
+        </div>
+    </form>
+
+{% endblock %}

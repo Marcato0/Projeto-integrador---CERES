@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'title' %}Criar loja{% endblock %}
+
+{% block 'css' %}
+    {% static 'css/create-store.css' %}
+{% endblock %}
+
+{% block 'content' %}
+
+    <form method="POST" class="formulario" id="formularioCriarLoja" name="formulario">
+        {% csrf_token %}
+
+        <div id="conteudo">
+        <h1 class="titulo">Crie sua loja</h1>
+
+
+        <div style="margin-bottom: 15px;" id="campo-loja">
+            <label for="input-nome" class="label-campo" id="label-nome">Nome da loja <strong><span class="asteristico">*</span></strong></label>
+            <input type="text" class="input-campo" id="input-nome" placeholder="Digite o nome de sua loja . . ." name="name" required>
+        </div>
+
+
+        <div style="margin-bottom: 15px;" id="campo-bairro">
+            <label for="input-bairro" class="label-campo" id="label-bairro">Bairro <strong><span class="asteristico">*</span></strong></label>
+            <input type="text" class="input-campo" id="input-bairro" placeholder="Digite seu bairro . . ." name="district" required>
+        </div>
+
+
+        <div style="margin-bottom: 15px;" id="campo-endereco">
+            <label for="input-endereco" class="label-campo" id="label-endereco">Endereço <strong><span class="asteristico">*</span></strong></label><br>
+            <input type="text" class="input-campo" id="input-endereco" placeholder="Digite sua rua . . ." name="address" required>
+        </div>
+        <div style="margin-bottom: 15px;" id="campo-numero">
+            <label for="input-numero" class="label-campo" id="label-numero">Número</label><br>
+            <input type="number" class="input-campo" id="input-numero" name="number" required>
+        </div>
+
+
+        <div style="margin-bottom: 15px;" id="campo-estado">
+            <label for="input-estado" class="label-campo" id="label-estado">Estado <strong><span class="asteristico">*</span></strong></label><br>
+            <select name="state" class="input-campo" id="input-estado"  required>
+                <option value="" disabled selected>- Selecione -</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 15px;" id="campo-cidade">
+            <label for="input-cidade" class="label-campo" id="label-cidade">Cidade <strong><span class="asteristico">*</span></strong></label><br>
+            <select name="city" class="input-campo" id="input-cidade"  required>
+                <option value="" disabled selected>- Selecione -</option>
+            </select>
+        </div>
+
+
+        <div id="campo-telefone">
+            <label for="input-telefone" class="label-campo" id="label-telefone">Telefone para contato <strong><span class="asteristico">*</span></strong></label><br>
+            <input type="number" class="input-campo" id="input-telefone" placeholder="Digite seu telefone . . ." name="phone" required>
+        </div>
+
+        <button type="submit" class="botao-principal">Criar loja</button>
+
+        </div>
+
+        <hr class="linhaFormulario">
+        
+        <div class="rodape-formulario">
+        <p><strong><a href="{% url 'home' %}" class="clique-aqui">Voltar à pagina principal</a></strong></p>
+        </div>              
+
+    </form>
+
+{% endblock %}

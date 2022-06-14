@@ -1,0 +1,20 @@
+#formularioLogin {
+    width: 395px;
+    height: 635px;
+    margin-bottom: 30px;
+}
+
+#formularioCadastro {
+    width: 395px;
+    height: 820px;
+    margin-bottom: 20px;
+}
+
+#logo {
+    width: 123px;
+    height: 123px;
+    background-color: var(--cinza2);
+    margin: auto;
+    border-radius: 500px;
+    margin-bottom: 35px;
+}

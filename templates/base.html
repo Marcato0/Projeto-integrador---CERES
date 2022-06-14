@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{% static 'css/global-settings.css' %}">
+        <link rel="stylesheet" href="{% block 'css' %} {% endblock %}">
+
+        <title>{% block 'title' %} {% endblock %}</title>
+    </head>
+    <body>
+
+        <header>
+
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-vinho">
+                <div class="container-fluid">
+                    <div class="navbar-brand">
+                        <img src="{% static 'img/logo.png' %}" alt="" width="60" height="48" class="d-inline-block align-text-top" />
+                    </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{% url 'home' %}">
+                                    Home
+                                </a>
+                            </li>
+
+                            {% if user.is_authenticated %}
+                                   
+                                {% if not store.user %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'create_store' %}">Criar loja</a>
+                                    </li>
+                                {% endif %}
+
+                                {% if store.user %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'my_store' %}">Minha loja</a>
+                                    </li>
+                                {% endif %}
+                            {% endif %}
+
+                        </ul>
+
+                        <div class="d-flex">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+                                    </li>
+                                {% endif %}
+
+                                {% if not user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="botaoNavBar" href="{% url 'register' %}">CADASTRAR</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="botaoNavBar" href="{% url 'login' %}">LOGAR</a>
+                                    </li>
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+
+        <!-- Messages -->
+        {% if messages %}
+            <br>
+            <div class="container">
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %}class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</if>
+                    {% endfor %}
+                </ul>
+            </div>   
+        {% endif%}
+        
+
+        <main>
+
+            {% block 'content' %} {% endblock %}
+        
+        </main>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+        <script src="{% static 'js/state-city.js' %}"></script>
+        <script src="{% static 'js/store.js' %}"></script>
+
+    </body>
+</html>
